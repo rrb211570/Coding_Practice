@@ -41,6 +41,6 @@ class Solution{
       if(test3.length==test3_out.length&&test3[0]==test3_out[0]&&
          test3[1]==test3_out[1]) pass++;
 
-      System.out.println("function: "+pass+"/4 passed.");
+      System.out.println("reverse_C(): "+pass+"/4 passed.");
    }
 }

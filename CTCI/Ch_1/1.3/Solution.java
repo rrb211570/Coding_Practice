@@ -78,6 +78,6 @@ class Solution{
          }
       }
 
-      System.out.println("function: "+pass+"/"+tests+" passed.");
+      System.out.println("group_Duplicate_Char(): "+pass+"/"+tests+" passed.");
    }
 }

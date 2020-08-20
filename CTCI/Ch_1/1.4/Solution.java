@@ -41,6 +41,6 @@ class Solution{
          if(isAnagram(p.a,p.b)==mapping.get(p)) pass++;
       }
 
-      System.out.println("function: "+pass+"/"+tests+" passed.");
+      System.out.println("isAnagram(): "+pass+"/"+tests+" passed.");
    }
 }
