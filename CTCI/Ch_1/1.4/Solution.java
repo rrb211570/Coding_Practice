@@ -35,7 +35,7 @@ class Solution{
       mapping.put(new Pair("baab","baab"), true);
       mapping.put(new Pair("abcd","abcd"), false);
 
-      int pass = 0; /*pass2, pass3, etc. */
+      int pass = 0;
       int tests = mapping.size();
       for(Pair p: mapping.keySet()){
          if(isAnagram(p.a,p.b)==mapping.get(p)) pass++;
