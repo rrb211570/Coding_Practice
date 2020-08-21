@@ -4,7 +4,7 @@ import java.util.*;
 without using any additional buffer.
 NOTE: One or two additional variables are fine.
 An extra copy of the array is not.
-NOTE: Use '|' to denote end of array if duplicate characters removed*/
+NOTE: We can not truncate array data type in java, so we use trailing '\0'*/
 class Solution{
    static void group_Duplicate_Char(char[] str){
       if(str==null||str.length<2) return;
@@ -19,7 +19,9 @@ class Solution{
             seen[str[i]] = true;
          }
       }
-      if(end!=str.length) str[end] = '|';
+      if(end!=str.length){
+         for(int i=end;i<str.length;++i) str[i] = '\0';
+      }
    }
 
    public static void main(String args[]){
@@ -29,11 +31,11 @@ class Solution{
       char[] test2 = "y".toCharArray();
       char[] test2_out = "y".toCharArray();
       char[] test3 = "abbcccccdcc$%^&////////".toCharArray();
-      char[] test3_out = "abcd$%^&/|".toCharArray();
+      char[] test3_out = "abcd$%^&/\0".toCharArray();
       char[] test4 = "tybxc".toCharArray();
       char[] test4_out = "tybxc".toCharArray();
       char[] test5 = "bbb".toCharArray();
-      char[] test5_out = "b|".toCharArray();
+      char[] test5_out = "b\0".toCharArray();
 
       int pass = 0, tests = 6; /*pass2, pass3, etc. */
 
@@ -49,7 +51,7 @@ class Solution{
       group_Duplicate_Char(test3);
       for(int i=0;i<test3.length;++i){
          if(test3[i]!=test3_out[i]) break;
-         if(i==test3.length-1||(test3[i]=='|'&&test3_out[i]=='|')){
+         if(i==test3.length-1||(test3[i]=='\0'&&test3_out[i]=='\0')){
             pass++;
             break;
          }
@@ -63,7 +65,7 @@ class Solution{
       group_Duplicate_Char(test4);
       for(int i=0;i<test4.length;++i){
             if(test4[i]!=test4_out[i]) break;
-            if(i==test4.length-1||(test4[i]=='|'&&test4_out[i]=='|')){
+            if(i==test4.length-1||(test4[i]=='\0'&&test4_out[i]=='\0')){
                pass++;
                break;
             }
@@ -72,12 +74,12 @@ class Solution{
       group_Duplicate_Char(test5);
       for(int i=0;i<test5.length;++i){
          if(test5[i]!=test5_out[i]) break;
-         if(i==test5.length-1||(test5[i]=='|'&&test5_out[i]=='|')){
+         if(i==test5.length-1||(test5[i]=='\0'&&test5_out[i]=='\0')){
             pass++;
             break;
          }
       }
 
-      System.out.println("group_Duplicate_Char(): "+pass+"/"+tests+" passed.");
+      System.out.println("function: "+pass+"/"+tests+" passed.");
    }
 }
