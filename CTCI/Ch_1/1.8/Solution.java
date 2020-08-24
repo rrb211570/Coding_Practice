@@ -1,7 +1,6 @@
 import java.util.*;
 
 class Solution{
-
    static boolean isRotation(char[] str, char[] str2){
       if(str==null||str2==null||str.length!=str2.length||str.length==0) return false;
       char[] poss_Rotations = new char[str.length*2];
