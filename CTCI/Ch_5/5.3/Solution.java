@@ -59,7 +59,7 @@ class Solution{
    }
 
    public static void main(String args[]){
-      for(int i=2;i<15;++i){
+      for(int i=1;i<15;++i){
          sameNumOfBinaryOnes_nextAndPrev(i);
          System.out.println();
       }
